@@ -176,7 +176,7 @@ See [here](ssh.md) for different types of SSH connection with respect to your OS
 
 1. What is the ``grep``command?
 
-El comando grep se utiliza para buscar cadenas de texto dentro de un archivo. Por su cuenta, lo que hace es buscar el texto especificado por el usuario dentro de un archivo o directorio, e imprimir las líneas de texto que contienen dicho patrón [1]. Un acercamiento inicial a dicho comando sería  ```$ grep opciones texto_buscado archivo ```, donde en opciones puede especificar las características de la búsqueda a realizar,  texto_buscado es la cadena de caracteres de interés y archivo es el archivo dentro del cual se buscará. Para especificar las características de la búsqueda se utilizan diferentes letras, palabras o símbolos como por ejemplo: -i para ignorar la distinción entre mayúsculas y minúsculas, -c para imprimir el número de coincidencias encontradas, entre otras [2]. 
+El comando grep se utiliza para buscar cadenas de texto dentro de un archivo. Por su cuenta, lo que hace es buscar el texto      especificado por el usuario dentro de un archivo o directorio, e imprimir las líneas de texto que contienen dicho patrón [1]. Un acercamiento inicial a dicho comando sería  ```$ grep opciones texto_buscado archivo ```, donde en opciones puede especificar las características de la búsqueda a realizar,  texto_buscado es la cadena de caracteres de interés y archivo es el archivo dentro del cual se buscará. Para especificar las características de la búsqueda se utilizan diferentes letras, palabras o símbolos como por ejemplo: -i para ignorar la distinción entre mayúsculas y minúsculas, -c para imprimir el número de coincidencias encontradas, entre otras [2]. 
 
 2. What is the meaning of ``#!/bin/python`` at the start of scripts?
 
@@ -203,7 +203,7 @@ La parte del comando awk podría ser reemplazada por  ```cut -d ‘ ‘ -f 3 ```
  
 7. Crop all images to make them square (256x256) and save them in a different folder. Tip: do not forget about  [imagemagick](http://www.imagemagick.org/script/index.php).
 
-Para completar este punto, se utilizó el script que se muestra en la parte inferior. En este, primero se creó una nueva carpeta llamada ‘crop’, utilizando el comando  ```mkdir crop ```, dentro de la carpeta de imágenes. Para simplificar el proceso lo que se hizo fue copiar todas las imágenes a esta nueva carpeta y luego si se realizó el corte, recorriendo cada una de las imágenes del directorio [8].
+   Para completar este punto, se utilizó el script que se muestra en la parte inferior. En este, primero se creó una nueva carpeta llamada ‘crop’, utilizando el comando  ```mkdir crop ```, dentro de la carpeta de imágenes. Para simplificar el proceso lo que se hizo fue copiar todas las imágenes a esta nueva carpeta y luego si se realizó el corte, recorriendo cada una de las imágenes del directorio [8].
 
  ```
 #!/bin/bash
@@ -233,15 +233,16 @@ convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $($
 done
  ```
  
-Referencias
-[1] https://www.computerhope.com/unix/ugrep.htm
-[2] https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
-[3] https://stackoverflow.com/questions/2429511/why-do-people-write-the-usr-bin-env-python-shebang-on-the-first-line-of-a-pyt
-[4] http://docs.python.org.ar/tutorial/3/interpreter.html
-[5] https://www.linuxtotal.com.mx/?cont=info_admon_004
-[6] https://www.geeksforgeeks.org/du-command-linux-examples/
-[7] http://www.sromero.org/wiki/linux/aplicaciones/uso_de_awk
-[8] https://imagemagick.org/Usage/crop/#crop
+# References
+
+1. https://www.computerhope.com/unix/ugrep.htm
+2. https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
+3. https://stackoverflow.com/questions/2429511/why-do-people-write-the-usr-bin-env-python-shebang-on-the-first-line-of-a-pyt
+4. http://docs.python.org.ar/tutorial/3/interpreter.html
+5. https://www.linuxtotal.com.mx/?cont=info_admon_004
+6. https://www.geeksforgeeks.org/du-command-linux-examples/
+7. http://www.sromero.org/wiki/linux/aplicaciones/uso_de_awk
+8 https://imagemagick.org/Usage/crop/#crop
 
 
 
