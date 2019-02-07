@@ -184,11 +184,11 @@ Esta línea de código define el lenguaje de programación y la plataforma en la
 
 3. Download using ``wget`` the [*bsds500*](https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html#bsds500) image segmentation database, and decompress it using ``tar`` (keep it in you hard drive, we will come back over this data in a few weeks).
 
-Para descargar la base de datos de segmentación de imágenes de Berkeley se utiliza el comando wget que recibe el link de descarga de la base de datos como se muestra a continuación: [wget http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/BSR/BSR_bsds500.tgz]. Después, para descomprimir el archivo se utiliza el comando [tar xzvf BSR_bsds500.tgz] [5]. 
+Para descargar la base de datos de segmentación de imágenes de Berkeley se utiliza el comando wget que recibe el link de descarga de la base de datos como se muestra a continuación:  ```wget http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/BSR/BSR_bsds500.tgz]. Después, para descomprimir el archivo se utiliza el comando [tar xzvf BSR_bsds500.tgz ``` [5]. 
  
 4. What is the disk size of the uncompressed dataset, How many images are in the directory 'BSR/BSDS500/data/images'?
 
-Para encontrar el tamaño en disco de la base de datos se utiliza el comando [du -sh BSR], dando como resultado 73MB. En este caso se utilizaron dos opciones: -h para poder visualizar las unidades de la información y -s para no tener en cuenta subdirectorios sino únicamente el tamaño de BSR [6]. Por otro lado, para hallar el número de imágenes del directorio de interés, es decir 500 imágenes, se puede utilizar un comando muy similar al ejemplo de las imágenes a escala de grises: [find ./BSR/BSDS500/data/images -name "*.jpg" -exec identify {} \; | wc -l]. 
+Para encontrar el tamaño en disco de la base de datos se utiliza el comando [du -sh BSR], dando como resultado 73MB. En este caso se utilizaron dos opciones: -h para poder visualizar las unidades de la información y -s para no tener en cuenta subdirectorios sino únicamente el tamaño de BSR [6]. Por otro lado, para hallar el número de imágenes del directorio de interés, es decir 500 imágenes, se puede utilizar un comando muy similar al ejemplo de las imágenes a escala de grises:  ```find ./BSR/BSDS500/data/images -name "*.jpg" -exec identify {} \; | wc -l ```. 
  
 5. What are all the different resolutions? What is their format? Tip: use ``awk``, ``sort``, ``uniq`` 
 
@@ -197,13 +197,15 @@ Para resolver este numeral se utilizó lo aprendido anteriormente, el comando aw
 
 6. How many of them are in *landscape* orientation (opposed to *portrait*)? Tip: use ``awk`` and ``cut``
 
-Para encontrar el número de imágenes con orientación de paisaje, es decir que se ven horizontales, se tuvo en cuenta la resolución hallada en el punto anterior y se utilizaron comandos conocidos como find, identify, awk, grep y wc. Sabiendo que las imágenes con la orientación de interés eran las que tenían una resolución de 481x321, se buscó el número de imágenes que tenían dicha resolución, como se muestra a continuación: [find ./BSR/BSDS500/data/images -name "*.jpg" -exec identify {} \; | awk '{print $3}' | grep '481x321'| wc -l]. 
-La parte del comando awk podría ser reemplazada por [cut -d ‘ ‘ -f 3], donde se estaría extrayendo la tercera palabra delimitada por espacios, o también se podría buscar las imágenes poniendo como delimitador la ‘x’ y buscando un único número de la resolución. Finalmente se encontró que hay 348 imágenes con orientación de paisaje, y si se intercambian los números de la resolución, se muestra que hay 152 imágenes con la orientación de retrato.
+Para encontrar el número de imágenes con orientación de paisaje, es decir que se ven horizontales, se tuvo en cuenta la resolución hallada en el punto anterior y se utilizaron comandos conocidos como find, identify, awk, grep y wc. Sabiendo que las imágenes con la orientación de interés eran las que tenían una resolución de 481x321, se buscó el número de imágenes que tenían dicha resolución, como se muestra a continuación:  ```find ./BSR/BSDS500/data/images -name "*.jpg" -exec identify {} \; | awk '{print $3}' | grep '481x321'| wc -l ```. 
+La parte del comando awk podría ser reemplazada por  ```cut -d ‘ ‘ -f 3 ```, donde se estaría extrayendo la tercera palabra delimitada por espacios, o también se podría buscar las imágenes poniendo como delimitador la ‘x’ y buscando un único número de la resolución. Finalmente se encontró que hay 348 imágenes con orientación de paisaje, y si se intercambian los números de la resolución, se muestra que hay 152 imágenes con la orientación de retrato.
 
  
 7. Crop all images to make them square (256x256) and save them in a different folder. Tip: do not forget about  [imagemagick](http://www.imagemagick.org/script/index.php).
 
-Para completar este punto, se utilizó el script que se muestra en la parte inferior. En este, primero se creó una nueva carpeta llamada ‘crop’, utilizando el comando [mkdir crop], dentro de la carpeta de imágenes. Para simplificar el proceso lo que se hizo fue copiar todas las imágenes a esta nueva carpeta y luego si se realizó el corte, recorriendo cada una de las imágenes del directorio [8].
+Para completar este punto, se utilizó el script que se muestra en la parte inferior. En este, primero se creó una nueva carpeta llamada ‘crop’, utilizando el comando  ```mkdir crop ```, dentro de la carpeta de imágenes. Para simplificar el proceso lo que se hizo fue copiar todas las imágenes a esta nueva carpeta y luego si se realizó el corte, recorriendo cada una de las imágenes del directorio [8].
+
+ ```
 #!/bin/bash
 
 # Go to the image directory
@@ -229,7 +231,8 @@ do
 convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $($
 
 done
-
+ ```
+ 
 Referencias
 [1] https://www.computerhope.com/unix/ugrep.htm
 [2] https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
