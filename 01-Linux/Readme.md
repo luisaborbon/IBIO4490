@@ -231,7 +231,7 @@ See [here](ssh.md) for different types of SSH connection with respect to your OS
       convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $($
 
       done
-       ```
+     
  
 ## References
 
