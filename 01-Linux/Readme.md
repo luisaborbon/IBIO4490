@@ -233,7 +233,7 @@ convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $($
 done
  ```
  
-# References
+## References
 
 1. https://www.computerhope.com/unix/ugrep.htm
 2. https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
