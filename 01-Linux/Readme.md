@@ -228,7 +228,7 @@ See [here](ssh.md) for different types of SSH connection with respect to your OS
       do
 
       # Crop every image , identifying each of them by their original name
-      convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $($
+      convert $(identify $im | awk '{print $1}') -gravity center -crop 256x256+0+0 $(identify $im | awk '{print $1}')
 
       done
      
