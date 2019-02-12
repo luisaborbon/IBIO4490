@@ -242,7 +242,7 @@ See [here](ssh.md) for different types of SSH connection with respect to your OS
 5. https://www.linuxtotal.com.mx/?cont=info_admon_004
 6. https://www.geeksforgeeks.org/du-command-linux-examples/
 7. http://www.sromero.org/wiki/linux/aplicaciones/uso_de_awk
-8 https://imagemagick.org/Usage/crop/#crop
+8. https://imagemagick.org/Usage/crop/#crop
 
 
 
