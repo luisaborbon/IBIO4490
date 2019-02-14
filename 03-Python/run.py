@@ -24,7 +24,7 @@ except ImportError:
 try:    
     import urllib
 except ImportError:
-    subprocess.call(['pip3','install','urllib'])
+    subprocess.call(['pip','install','urllib'])
     import urllib
     
 # Start measuring time [1]
@@ -49,34 +49,34 @@ N = np.random.randint(6,20)
 if N%2 != 0:
     N=N-1
 
-#Verifie if the Resized images folder exists
+#Verify if the Resized images folder exists
 if os.path.exists(os.getcwd()+ '/' + 'catdog' + '/' + 'catdogResize') == False:
      os.mkdir(os.getcwd() + '/' + 'catdog' + '/' + 'catdogResize')
 
 plt.figure(1)
 for i in range(0,N):
-     #Choose a random image and resize it
+     #Choose a random image from the folder and resize it
      imgName = random.choice(os.listdir(os.getcwd() + '/' + 'catdog')) 
      img = Image.open(os.getcwd() + '/' + 'catdog'+ '/' + imgName)
      imgResize = img.resize((256,256))
      
-     # Draw the labels on the images and saves them in a different folder
+     #Draw the labels on the images and save them in a different folder
      draw = ImageDraw.Draw(imgResize)
      font = ImageFont.truetype('arial.ttf', 50)
      imgLabel = draw.text((100,80),imgName[0:3] ,font=font, fill='white')
      imgResize.save(os.getcwd() +'/' + 'catdog' + '/' + 'catdogResize' + '/' + imgName)
         
-     # Plot the images in subplots
+     #Plot the images in subplots
      plt.subplot(2,N/2,i+1) 
      plt.axis('off')
      plt.imshow(imgResize)
      plt.subplots_adjust(wspace=0, hspace=0) #Less Space between images [5]
 plt.show()
 
-#[6] Deleting the folder created with the resized images
+#[6] Delete the folder created with the resized images
 shutil.rmtree(os.getcwd()+ '/' + 'catdog' + '/' + 'catdogResize')
 
-# Show the processing time
+#Show the processing time
 end = time.time()
 print('The processing time was: ' + str(end -start) + 'seconds')
 
