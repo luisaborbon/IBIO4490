@@ -33,7 +33,7 @@ start = time.time()
 
 # Download the database [2]
 url = 'https://www.dropbox.com/s/ldhzb3o9qai14m1/catdog.zip?dl=1'
-u = urllib.request.urlopen(url)
+u = urllib.urlopen(url)
 data = u.read()
 u.close()
 with open(os.getcwd() + '/' + 'catdog.zip', "wb") as f :
@@ -63,7 +63,7 @@ for i in range(0,N):
      
      #Draw the labels on the images and save them in a different folder
      draw = ImageDraw.Draw(imgResize)
-     font = ImageFont.truetype('arial.ttf', 50)
+     font = ImageFont.truetype('Lato-Medium.ttf', 50)
      imgLabel = draw.text((100,80),imgName[0:3] ,font=font, fill='white')
      imgResize.save(os.getcwd() +'/' + 'catdog' + '/' + 'catdogResize' + '/' + imgName)
         
