@@ -81,7 +81,7 @@ shutil.rmtree(os.getcwd()+ '/' + 'catdog' + '/' + 'catdogResize')
 end = time.time()
 print('The processing time was: ' + str(end -start) + 'seconds')
 
-#References:
+# References:
 #[1] https://pythonhow.com/measure-execution-time-python-code/
 #[2] http://www.xavierdupre.fr/blog/2015-01-20_nojs.html
 #[3] https://stackoverflow.com/questions/3451111/unzipping-files-in-python
